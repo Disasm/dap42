@@ -81,6 +81,12 @@ DAP103-BLUEPILL-DFU.bin: | $(BUILD_DIR)
 	$(Q)$(MAKE) TARGET=STM32F103-BLUEPILL-DFUBOOT -C src/
 	$(Q)cp src/DAP42.bin $(BUILD_DIR)/$(@)
 
+DAP103-BLUEPILL-SHIELD.bin: | $(BUILD_DIR)
+	@printf "  BUILD $(@)\n"
+	$(Q)$(MAKE) TARGET=STM32F103-BLUEPILL-SHIELD -C src/ clean
+	$(Q)$(MAKE) TARGET=STM32F103-BLUEPILL-SHIELD -C src/
+	$(Q)cp src/DAP42.bin $(BUILD_DIR)/$(@)
+
 BRAINv3.3.bin: | $(BUILD_DIR)
 	@printf "  BUILD $(@)\n"
 	$(Q)$(MAKE) TARGET=BRAINV3.3 -C src/ clean
